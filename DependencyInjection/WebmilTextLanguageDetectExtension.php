@@ -1,6 +1,6 @@
 <?php
 
-namespace Webmil\LanguageDetectBundle\DependencyInjection;
+namespace Webmil\TextLanguageDetectBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
@@ -10,9 +10,9 @@ use Symfony\Component\DependencyInjection\Loader;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 /**
- * WebmilLanguageDetect Extension
+ * WebmilTextLanguageDetect Extension
  */
-class WebmilLanguageDetectExtension extends Extension
+class WebmilTextLanguageDetectExtension extends Extension
 {
 
     /**
@@ -28,8 +28,8 @@ class WebmilLanguageDetectExtension extends Extension
         $configuration = new Configuration();
 
         $config = $this->processConfiguration($configuration, $configs);
-        
-        $container->setParameter('webmil.language_detect.omit_languages', $config['omit_languages']); 
+
+        $container->setParameter('webmil.text_language_detect.omit_languages', $config['omit_languages']); 
            
         $loader = new XmlFileLoader($container, new FileLocator(array(__DIR__.'/../Resources/config/')));
         $loader->load('services.xml');
